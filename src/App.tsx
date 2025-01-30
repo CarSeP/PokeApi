@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import Card from "./components/card";
+import PokemonCard from "./components/PokemonCard";
 import axios from "axios";
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
       {!isLoading && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {pokemons.map((el) => (
-            <Card pokemon={el} key={el.id} />
+            <PokemonCard pokemon={el} key={el.id} />
           ))}
         </div>
       )}
