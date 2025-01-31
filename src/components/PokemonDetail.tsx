@@ -1,3 +1,4 @@
+import { capitalizeFirstLetter } from "../utils/capitalizeWords";
 import PokemonStat from "./PokemonStat";
 
 function PokemonDetail({
@@ -23,8 +24,8 @@ function PokemonDetail({
         <div className="md:w-2/3 md:pl-6">
           <div className="flex justify-between items-center">
             <h2 className="text-3xl font-semibold mb-2">
-              <span className="text-gray-300 text-2xl">#{pokemon.id} </span>
-              {pokemon.name}
+              <span className="text-gray-300 text-3xl">#{pokemon.id} </span>
+              {capitalizeFirstLetter(pokemon.name)}
             </h2>
             <button
               className="flex cursor-pointer"
@@ -56,7 +57,7 @@ function PokemonDetail({
                 key={el.slot}
                 className={`${el.type.name} text-xs font-semibold px-2 py-1 rounded`}
               >
-                {el.type.name}
+                {capitalizeFirstLetter(el.type.name)}
               </span>
             ))}
           </div>
@@ -73,8 +74,8 @@ function PokemonDetail({
               <p className="font-semibold">Abilities:</p>
               {pokemon.abilities.map((el: any) => {
                 if (el.is_hidden)
-                  return <span key={el.slot}>{el.ability.name}(Hidden)</span>;
-                return <span key={el.slot}>{el.ability.name} </span>;
+                  return <span key={el.slot}>{capitalizeFirstLetter(el.ability.name)}(Hidden)</span>;
+                return <span key={el.slot}>{capitalizeFirstLetter(el.ability.name)} </span>;
               })}
             </div>
           </div>

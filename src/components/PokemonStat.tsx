@@ -1,3 +1,5 @@
+import { capitalizeFirstLetter } from "../utils/capitalizeWords";
+
 type StatType = "hp" | "attack" | "defense" | "speed" | "special-attack" | "special-defense";
 
 function PokemonStat({ stat }: { stat: any }) {
@@ -16,7 +18,7 @@ function PokemonStat({ stat }: { stat: any }) {
 
   return (
     <div>
-      <p className="font-semibold">{stat.stat.name}</p>
+      <p className="font-semibold">{capitalizeFirstLetter(stat.stat.name)}</p>
       <div className="bg-gray-200 rounded-full h-4 mt-1">
       <div className={`rounded-full h-4 ${styles[stat.stat.name as StatType]}`} style={width}></div>
       </div>
