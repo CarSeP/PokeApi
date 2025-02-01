@@ -1,6 +1,7 @@
+import { PokemonDataType } from "../interfaces/pokemonType";
 import { capitalizeFirstLetter } from "../utils/capitalizeWords";
 
-function Card({ pokemon, onClick }: { pokemon: any; onClick: (id:number) => void }) {
+function Card({ pokemon, onClick }: { pokemon: PokemonDataType; onClick: (id:number) => void }) {
   return (
     <div
       onClick={() => {
@@ -15,7 +16,7 @@ function Card({ pokemon, onClick }: { pokemon: any; onClick: (id:number) => void
       />
       <h2 className="text-xl font-semibold text-center mb-2">{capitalizeFirstLetter(pokemon.name)}</h2>
       <div className="flex justify-center space-x-2">
-        {pokemon.types.map((el: any) => (
+        {pokemon.types.map((el) => (
           <span
             key={el.slot}
             className={`${el.type.name} text-xs font-semibold px-2 py-1 rounded`}

@@ -1,6 +1,7 @@
+import { StatsDataType } from "../interfaces/pokemonType";
 import { capitalizeFirstLetter } from "../utils/capitalizeWords";
 
-function PokemonStat({ stat }: { stat: any }) {
+function PokemonStat({ stat }: { stat: StatsDataType }) {
   const width = {
     width: `${(stat.base_stat / 255) * 100}%`,
   };

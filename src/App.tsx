@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import PokemonCard from "./components/PokemonCard";
 import axios from "axios";
 import PokemonDetail from "./components/PokemonDetail";
+import { PokemonDataType } from "./interfaces/pokemonType";
 
 function App() {
-  const [pokemons, setPokemon] = useState<any[]>([]);
+  const [pokemons, setPokemon] = useState<PokemonDataType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [pokemonID, setPokemonID] = useState(0);
 
@@ -18,12 +19,12 @@ function App() {
     setPokemon(pokemonList);
     setIsLoading(false);
   };
-  const getPokemon = (id:number) => {
-    return pokemons.find((el) => el.id == id)
-  }
+  const getPokemon = (id: number) => {
+    return pokemons.find((el) => el.id == id);
+  };
   const onShowDetail = (id: number) => {
-    setPokemonID(id)
-  }
+    setPokemonID(id);
+  };
 
   useEffect(() => {
     getPokemons();
@@ -34,7 +35,7 @@ function App() {
       <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">
         Pokemon API
       </h1>
-      {(!isLoading && !pokemonID) && (
+      {!isLoading && !pokemonID && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {pokemons.map((el) => (
             <PokemonCard pokemon={el} key={el.id} onClick={onShowDetail} />
@@ -50,7 +51,14 @@ function App() {
           </div>
         </div>
       )}
-      {pokemonID && <PokemonDetail pokemon={getPokemon(pokemonID)} hideDetail={()=>{setPokemonID(0)}}/>}
+      {pokemonID && (
+        <PokemonDetail
+          pokemon={getPokemon(pokemonID)!}
+          hideDetail={() => {
+            setPokemonID(0);
+          }}
+        />
+      )}
     </div>
   );
 }

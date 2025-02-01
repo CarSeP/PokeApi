@@ -1,13 +1,13 @@
+import { PokemonDataType } from "../interfaces/pokemonType";
 import { capitalizeFirstLetter } from "../utils/capitalizeWords";
 import PokemonStat from "./PokemonStat";
 
-function PokemonDetail({
-  pokemon,
-  hideDetail,
-}: {
-  pokemon: any;
+interface props {
+  pokemon: PokemonDataType;
   hideDetail: () => void;
-}) {
+}
+
+function PokemonDetail({ pokemon, hideDetail }: props) {
   const handleOnClick = () => {
     hideDetail();
   };
@@ -40,10 +40,7 @@ function PokemonDetail({
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <path
-                  d="M4.5 2.5L1.5 5.5L4.5 8.5"
-                  stroke="black"
-                />
+                <path d="M4.5 2.5L1.5 5.5L4.5 8.5" stroke="black" />
                 <path
                   d="M1.5 5.5H7.5C8.88 5.5 10 6.62 10 8C10 9.38 8.88 10.5 7.5 10.5H4"
                   stroke="black"
@@ -52,7 +49,7 @@ function PokemonDetail({
             </button>
           </div>
           <div className="flex space-x-2 mb-4">
-            {pokemon.types.map((el: any) => (
+            {pokemon.types.map((el) => (
               <span
                 key={el.slot}
                 className={`${el.type.name} text-xs font-semibold px-2 py-1 rounded`}
@@ -72,10 +69,18 @@ function PokemonDetail({
             </div>
             <div>
               <p className="font-semibold">Abilities:</p>
-              {pokemon.abilities.map((el: any) => {
+              {pokemon.abilities.map((el) => {
                 if (el.is_hidden)
-                  return <span key={el.slot}>{capitalizeFirstLetter(el.ability.name)}(Hidden)</span>;
-                return <span key={el.slot}>{capitalizeFirstLetter(el.ability.name)} </span>;
+                  return (
+                    <span key={el.slot}>
+                      {capitalizeFirstLetter(el.ability.name)}(Hidden)
+                    </span>
+                  );
+                return (
+                  <span key={el.slot}>
+                    {capitalizeFirstLetter(el.ability.name)}{" "}
+                  </span>
+                );
               })}
             </div>
           </div>
@@ -84,7 +89,7 @@ function PokemonDetail({
       <div className="mt-6">
         <h3 className="text-xl font-semibold mb-2">Base Stats</h3>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {pokemon.stats.map((el: any) => (
+          {pokemon.stats.map((el) => (
             <PokemonStat key={el.stat.name} stat={el} />
           ))}
         </div>
