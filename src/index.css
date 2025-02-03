@@ -80,6 +80,10 @@ body {
   @apply bg-pink-200 text-pink-800;
 }
 
+.ground {
+  @apply bg-amber-500 text-amber-800;
+}
+
 .stat-hp {
   @apply bg-green-500;
 }
@@ -87,15 +91,19 @@ body {
 .stat-attack {
   @apply bg-red-500;
 }
+
 .stat-defense {
   @apply bg-blue-500;
 }
+
 .stat-speed {
   @apply bg-yellow-500;
 }
+
 .stat-special-attack {
   @apply bg-purple-500;
 }
+
 .stat-special-defense {
   @apply bg-indigo-500;
 }

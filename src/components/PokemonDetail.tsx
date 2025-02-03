@@ -1,4 +1,4 @@
-import { PokemonDataType } from "../interfaces/pokemonType";
+import { PokemonDataType } from "../interfaces/pokemonDataType";
 import { capitalizeFirstLetter } from "../utils/capitalizeWords";
 import PokemonStat from "./PokemonStat";
 

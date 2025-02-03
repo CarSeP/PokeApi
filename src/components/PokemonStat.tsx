@@ -1,4 +1,4 @@
-import { StatsDataType } from "../interfaces/pokemonType";
+import { StatsDataType } from "../interfaces/pokemonDataType";
 import { capitalizeFirstLetter } from "../utils/capitalizeWords";
 
 function PokemonStat({ stat }: { stat: StatsDataType }) {

@@ -1,4 +1,4 @@
-import { PokemonDataType } from "../interfaces/pokemonType";
+import { PokemonDataType } from "../interfaces/pokemonDataType";
 import { capitalizeFirstLetter } from "../utils/capitalizeWords";
 
 function Card({ pokemon, onClick }: { pokemon: PokemonDataType; onClick: (id:number) => void }) {
