@@ -1,7 +1,7 @@
 import { PokemonDataType } from "../interfaces/pokemonDataType";
 import { capitalizeFirstLetter } from "../utils/capitalizeWords";
 
-function Card({ pokemon, onClick }: { pokemon: PokemonDataType; onClick: (id:number) => void }) {
+function PokemonCard({ pokemon, onClick }: { pokemon: PokemonDataType; onClick: (id:number) => void }) {
   return (
     <div
       onClick={() => {
@@ -33,4 +33,4 @@ function Card({ pokemon, onClick }: { pokemon: PokemonDataType; onClick: (id:num
   );
 }
 
-export default Card;
+export default PokemonCard;
